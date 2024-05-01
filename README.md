@@ -3,6 +3,7 @@
 <img src=misc/fig1.png width=63%/>
 <img src=misc/fig-strategyComparison.png width=34%/>
 </div>
+
 **This is the official repository for our paper "Rethinking Early-Fusion Strategies for Improved Multispectral Object Detection".**
 
 **Our main contributions are summarized as follows:**
