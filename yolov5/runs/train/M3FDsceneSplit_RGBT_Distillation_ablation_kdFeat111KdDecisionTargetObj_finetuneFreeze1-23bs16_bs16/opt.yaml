@@ -1,0 +1,79 @@
+weights: runs/train/M3FDsceneSplit_RGBTEarly_small_RGBEntropyTBrightRGBTEdge_cocoPretrain_freeze1-23_bs16/weights/best.pt
+teacher_weights: ./runs/train/M3FDsceneSplit_RGBTMediumNotSharingCustomLR_large_bs32_epoch36_cocoPretrain_convWeightConv3dBNSiluDwBNSilu_t4xLR/weights/best.pt
+cfg: /home/zx/rgbx-distillation/code/yolov5-master/models/yolov5s_modifiedConv.yaml
+teacher_cfg: models/yolov5l_mediumFusion.yaml
+data: /home/zx/rgbx-distillation/code/yolov5-master/data/m3fd-visible-sceneSplit.yaml
+hyp:
+  lr0: 0.01
+  lrf: 0.01
+  momentum: 0.937
+  weight_decay: 0.0005
+  warmup_epochs: 3.0
+  warmup_momentum: 0.8
+  warmup_bias_lr: 0.1
+  box: 0.05
+  cls: 0.5
+  cls_pw: 1.0
+  obj: 1.0
+  obj_pw: 1.0
+  iou_t: 0.2
+  anchor_t: 4.0
+  fl_gamma: 0.0
+  hsv_h: 0.015
+  hsv_s: 0.7
+  hsv_v: 0.4
+  degrees: 0.0
+  translate: 0.1
+  scale: 0.5
+  shear: 0.0
+  perspective: 0.0
+  flipud: 0.0
+  fliplr: 0.5
+  mosaic: 1.0
+  mixup: 0.0
+  copy_paste: 0.0
+  feature_kd_type: SelectiveKD
+  kd_feats:
+  - 1
+  - 1
+  - 1
+  kd_obj: 0.01
+  kd_box: 0.05
+  kd_cls: 0.05
+  soft_kd_temperature: 4.0
+epochs: 36
+batch_size: 16
+imgsz: 640
+rect: false
+resume: false
+nosave: false
+noval: false
+noautoanchor: false
+noplots: false
+evolve: null
+bucket: ''
+cache: null
+image_weights: false
+device: '7'
+multi_scale: false
+single_cls: false
+optimizer: SGD
+sync_bn: false
+workers: 8
+project: runs/train
+name: M3FDsceneSplit_RGBT_Distillation_ablation_kdFeat111KdDecisionTargetObj_finetuneFreeze1-23bs16_bs16
+exist_ok: true
+quad: false
+cos_lr: false
+label_smoothing: 0.0
+patience: 100
+freeze:
+- 0
+save_period: -1
+seed: 0
+local_rank: -1
+entity: null
+upload_dataset: false
+bbox_interval: -1
+artifact_alias: latest
+save_dir: runs/train/M3FDsceneSplit_RGBT_Distillation_ablation_kdFeat111KdDecisionTargetObj_finetuneFreeze1-23bs16_bs16
